@@ -3,7 +3,7 @@
 
 /* nvim related */
 .config/nvim/plugin
-autoload
+/* autoload */
 session
 spell
 .netrwhist
