@@ -12,7 +12,6 @@ def stow_configs():
 
     run(["stow", "configs"])
 
-
 def install_docker():
     required_programs = ["ca-certificates", "curl", "gnupg", "lsb-release"]
     run(["apt-get", "install"] + required_programs)

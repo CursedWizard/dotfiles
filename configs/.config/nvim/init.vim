@@ -12,9 +12,9 @@ nnoremap ` q
 nnoremap <C-p> <C-i>
 
 
-source /home/funtik/.config/nvim/vim-config/coc.vim
-source /home/funtik/.config/nvim/vim-config/fzf.vim
-source /home/funtik/.config/nvim/functions.vim
+source $HOME/.config/nvim/vim-config/coc.vim
+source $HOME/.config/nvim/vim-config/fzf.vim
+source $HOME/.config/nvim/functions.vim
 
 
 let g:airline_theme='base16_one_light'
