@@ -13,7 +13,7 @@ end
 
 alias rr='ranger --choosedir=$HOME/.config/ranger/lastdir; cd (cat $HOME/.config/ranger/lastdir)'
 
-if test $FULL_INIT = "yes"
+if not test -z $FULL_INIT
 
   alias rsync_django='rsync -vrP /home/funtik/dev/Python/test-django/backend/ root@frostgem.ru:/root/server_app'
   alias yda="youtube-dl -f 'bestaudio[ext=mp3]/bestaudio[ext=m4a]/bestaudio'"
