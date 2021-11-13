@@ -38,9 +38,8 @@ def install_docker():
 
     if which("docker-compose") is None:
         command = """
-        sudo curl -L \
-            "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-"(uname -s)"-"(uname -m) \
-            -o /usr/local/bin/docker-compose
+            bash -c "curl -L \
+            https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose"
         """
         os.system(command)
         os.system("chmod +x /usr/local/bin/docker-compose")
