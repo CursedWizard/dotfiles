@@ -1,0 +1,6 @@
+autoload
+.git
+session
+spell
+.netrwhist
+packer_compiled.lua

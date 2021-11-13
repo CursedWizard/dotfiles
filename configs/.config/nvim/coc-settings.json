@@ -1,0 +1,73 @@
+{
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  },
+  "languageserver": {
+    "ccls": {
+      "command": "/usr/bin/ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp", "cu"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+    }
+  },
+  "suggest.completionItemKindLabels": {
+    "function": "",
+    "method": "",
+    "variable": "v",
+    "constant": "",
+    "struct": "פּ",
+    "class": "𝓒",
+    "interface": "",
+    "text": "",
+    "enum": "ℰ",
+    "enumMember": "ℰ",
+    "module": "",
+    "color": "",
+    "property": "",
+    "field": "",
+    "unit": "塞",
+    "file": "",
+    "value": "",
+    "event": "",
+    "folder": "",
+    "keyword": "",
+    "snippet": "",
+    "operator": "",
+    "reference": "",
+    "typeParameter": "𝙏",
+    "default": ""
+  },
+
+  "docthis.includeDescriptionTag": false,
+  "docthis.includeTypes": false,
+  "docthis.includeMemberOfOnClassMembers": false,
+
+  "python.jediEnabled": true,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.analysis.diagnosticEnabled": true,
+
+  "suggest.detailMaxLength": 50,
+  "suggest.maxPreviewWidth": 35,
+  "_comment": "Max number of lines in suggest window",
+  "suggest.maxCompleteItemCount": 200,
+  "_comment": "Max mumber of columns in suggest window (except type decl)",
+  "suggest.labelMaxLength": 20,
+
+  "prettier.tabWidth": 2
+}
+

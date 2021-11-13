@@ -1,0 +1,39 @@
+
+# set default-bg                  "#63b0cf"
+
+# set default-bg                  "#728a29"
+set default-bg                  "#616161"
+
+set default-fg                  "#000000"
+
+set selection-clipboard clipboard
+
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+
+map [normal]     y scroll up
+map [fullscreen] y scroll up
+
+map [normal]     e   navigate previous
+map [fullscreen] e   navigate previous
+map [normal]     y   navigate next
+map [fullscreen] y   navigate next
+
+map [normal]     		<C-d>   :bmark
+map [fullscreen]     	<C-d>   :bmark
+
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
+map p print
+
+map [normal]     л scroll up
+map [fullscreen] л scroll up
+map [normal]     0x6cf scroll down
+map [fullscreen] о scroll down
