@@ -42,7 +42,7 @@ def install_docker():
     if which("docker-compose") is None:
         command = """
             bash -c "curl -L \
-            https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose"
+            https://github.com/docker/compose/releases/download/1.28.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose"
         """
         os.system(command)
         os.system("chmod +x /usr/local/bin/docker-compose")
@@ -51,7 +51,7 @@ def install_docker():
 def init_server():
     # install basic utilities
 
-    required_programs = ["fish", "ranger", "neovim", "rsync"]
+    required_programs = ["fish", "ranger", "neovim", "rsync", "unzip"]
     # Installs certificate on your server
     # run certbot --nginx to apply certificate
     required_programs.append("python3-certbot-nginx")
