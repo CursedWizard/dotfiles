@@ -15,7 +15,9 @@
         "compile_commands.json",
         ".vim/",
         ".git/",
-        ".hg/"
+        ".hg/",
+        "pyproject.toml",
+        "pyrightconfig.json"
       ],
       "initializationOptions": {
         "cache": {
@@ -24,6 +26,13 @@
       }
     }
   },
+  "coc.preferences.rootPatterns": [
+    ".git",
+    ".hg",
+    ".projections.json",
+    "pyproject.toml",
+    "pyrightconfig.json"
+  ],
   "suggest.completionItemKindLabels": {
     "function": "",
     "method": "",
@@ -52,6 +61,8 @@
     "default": ""
   },
 
+  "suggest.defaultSortMethod": "length",
+
   "docthis.includeDescriptionTag": false,
   "docthis.includeTypes": false,
   "docthis.includeMemberOfOnClassMembers": false,
@@ -67,6 +78,14 @@
   "suggest.maxCompleteItemCount": 200,
   "_comment": "Max mumber of columns in suggest window (except type decl)",
   "suggest.labelMaxLength": 20,
+
+  "rust-analyzer.rustfmt.enableRangeFormatting": true,
+  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "python.formatting.autopep8Args": ["-aa"],
+  "python.analysis.autoImportCompletions": true,
+
+  "python.linting.flake8Enabled": false,
+  "go.goplsOptions": {"gofumpt": true},
 
   "prettier.tabWidth": 2
 }

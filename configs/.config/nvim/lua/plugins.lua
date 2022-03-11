@@ -12,8 +12,7 @@ return require('packer').startup(function(use)
 
   use('vim-airline/vim-airline-themes')
   -- Ranger integration
-  use('francoiscabrol/ranger.vim')
-  -- use('rbgrouleff/bclose.vim')
+  use('kevinhwang91/rnvimr')
 
   -- Automatic rooting
   use('airblade/vim-rooter')
@@ -29,6 +28,9 @@ return require('packer').startup(function(use)
   use({'vim-airline/vim-airline',
     disable = true
   })
+
+
+  use({'kyazdani42/nvim-web-devicons'})
 
   -- use {
   --   'romgrk/barbar.nvim',
@@ -87,13 +89,13 @@ return require('packer').startup(function(use)
     end,
   })
 
-  use({
-    'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
-    config = function()
-      require('plugins.telescope')
-    end,
-  })
+  -- use({
+  --   'nvim-telescope/telescope.nvim',
+  --   requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
+  --   config = function()
+  --     require('plugins.telescope')
+  --   end,
+  -- })
 
 
   use({
@@ -102,6 +104,7 @@ return require('packer').startup(function(use)
       require('nvim-autopairs').setup({
         disable_filetype = { 'TelescopePrompt' },
         check_ts = true,
+        map_cr = false
       })
     end,
   })
@@ -158,13 +161,13 @@ return require('packer').startup(function(use)
   })
 
 
-  use({
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require('plugins.nvim-tree')
-    end,
-  })
+  -- use({
+  --   'kyazdani42/nvim-tree.lua',
+  --   requires = 'kyazdani42/nvim-web-devicons',
+  --   config = function()
+  --     require('plugins.nvim-tree')
+  --   end,
+  -- })
 
   use({
     'norcalli/nvim-colorizer.lua',
@@ -176,7 +179,8 @@ return require('packer').startup(function(use)
 
   use({
     'neoclide/coc.nvim',
-    branch = 'release'
+    branch = 'release',
+    commit = 'cb336318abe0fb2e125731201d0df029abce0b39'
   })
 
   use({

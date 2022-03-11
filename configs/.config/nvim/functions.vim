@@ -156,6 +156,6 @@ endfunction
 nnoremap <silent> q :call CloseBuffer()<CR>
 nnoremap <silent> <C-s> :w<CR>
 
-nnoremap <silent> <space>r :Ranger<CR>
+nnoremap <silent> <space>r :RnvimrToggle<CR>
 let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
 let g:ranger_replace_netrw = 1 " open ranger when vim open a directory

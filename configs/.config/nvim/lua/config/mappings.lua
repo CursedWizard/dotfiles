@@ -29,6 +29,8 @@ map('n', '<leader>go', [[:G<CR>]], opts)
 map('n', '<leader>gl', [[:Git log<CR>]], opts)
 map('n', '<leader>gc', [[:Git commit<CR>]], opts)
 
+map('n', '<Bslash>pf', [[:Autoflake --remove-all-unused-imports<CR>]], opts)
+
 
 -- Edit snippets file
 -- @reference: https://github.com/neoclide/coc-snippets
