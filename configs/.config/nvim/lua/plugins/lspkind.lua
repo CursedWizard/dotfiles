@@ -1,5 +1,6 @@
 require('lspkind').init({
-  with_text = false,
+  mode = 'symbol_text',
+  preset = 'codicons',
   -- Below are defaults
   symbol_map = {
     Text = '',

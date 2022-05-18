@@ -15,7 +15,12 @@ def stow_configs():
     run(["stow", "ranger"])
     run(["stow", "alacritty"])
 
+def update():
+    run(["apt-get", "update"])
+
 def install_docker():
+    update()
+
     required_programs = ["ca-certificates", "curl", "gnupg", "lsb-release"]
     run(["apt-get", "install"] + required_programs)
 
@@ -51,11 +56,12 @@ def install_docker():
 def init_server():
     # install basic utilities
 
-    required_programs = ["fish", "ranger", "neovim", "rsync", "unzip"]
+    required_programs = ["fish", "ranger", "neovim", "rsync", "unzip", "python3-pip"]
     # Installs certificate on your server
     # run certbot --nginx to apply certificate
     required_programs.append("python3-certbot-nginx")
 
+    update()
     run(["apt-get", "install"] + required_programs)
 
     print("Don't forget to change the shell to fish.")

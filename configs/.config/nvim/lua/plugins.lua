@@ -14,6 +14,8 @@ return require('packer').startup(function(use)
   -- Ranger integration
   use('kevinhwang91/rnvimr')
 
+  use('github/copilot.vim')
+
   -- Automatic rooting
   use('airblade/vim-rooter')
 
