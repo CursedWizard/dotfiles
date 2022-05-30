@@ -1,0 +1,21 @@
+[/]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']
+screensaver=@as []
+volume-down=['<Super>minus']
+volume-mute=['<Super>m']
+volume-up=['<Super>equal']
+
+[custom-keybindings/custom0]
+binding='<Super>t'
+command='alacritty -e tmux'
+name='Launch tmux'
+
+[custom-keybindings/custom1]
+binding='<Super>Return'
+command='alacritty'
+name='Allactiry'
+
+[custom-keybindings/custom2]
+binding='<Super>b'
+command='firefox'
+name='Firefox'
