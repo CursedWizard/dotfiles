@@ -20,9 +20,9 @@ require('telescope').setup({
     },
     prompt_prefix = '🔍 ',
     layout_config = {
-      prompt_position = 'top',
+      prompt_position = 'bottom',
     },
-    sorting_strategy = 'ascending',
+    sorting_strategy = 'descending',
     file_ignore_patterns = { 'node_modules', '.git/', 'terraform.tfstate', '%.png', '%.ttf' },
   },
   pickers = {
@@ -41,9 +41,18 @@ require('telescope').setup({
       }
     },
   },
-
+  extensions = {
+    project = {
+      base_dirs = {
+        '~/dev',
+      },
+      hidden_files = true, -- default: false
+      theme = "dropdown"
+  }
+}
 })
 
+map('n', '<space>n', [[:Telescope neoclip<CR>]], opts)
 -- map('n', '<space>f', [[:Telescope find_files hidden=true<CR>]], opts)
 -- map('n', '<space>b', [[:Telescope buffers <CR>]], opts)
 -- map('n', '<space>l', [[:Telescope live_grep<CR>]], opts)

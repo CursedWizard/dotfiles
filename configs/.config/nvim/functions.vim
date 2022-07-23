@@ -1,3 +1,13 @@
+nmap <space>s <plug>(SubversiveSubstituteRange)
+xmap <space>s <plug>(SubversiveSubstituteRange)
+
+nmap <space>ss <plug>(SubversiveSubstituteWordRange)
+
+" ie = inner entire buffer
+onoremap if :exec "normal! ggVG"<cr>
+
+" iv = current viewable text in the buffer
+onoremap iv :exec "normal! HVL"<cr>
 
 " Run macro over selected rows
 function! ExecuteMacroOverVisualRange()

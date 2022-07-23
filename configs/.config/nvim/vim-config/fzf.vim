@@ -22,11 +22,16 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-nmap <silent><space>f :Files<CR>
+" nmap <silent><space>f :Files<CR>
 " nnoremap <leader>g :Rg<CR>
 " nmap <silent><space>l :Rg<CR>
-nmap <silent><space>l :RG<CR>
-nmap <silent><space>b :Buffers<CR>
+" nmap <silent><space>l :RG<CR>
+" nmap <silent><space>b :Buffers<CR>
+
+nnoremap <space>f <cmd>Telescope find_files<cr>
+nnoremap <space>l <cmd>Telescope live_grep<cr>
+nnoremap <space>b <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Get text in files with Rg
 command! -bang -nargs=* Rg

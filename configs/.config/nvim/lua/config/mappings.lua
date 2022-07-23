@@ -12,10 +12,12 @@ local opts = {
   silent = true,
 }
 
+-- map('n', "<space>s", "<cmd>lua require('substitute.range').word()<cr>", opts)
 
 -- Dont leave visual mode when indenting
 map('v', '<', [[<gv]])
 map('v', '>', [[>gv]])
+
 
 -- change keyboard layout
 map('i', '<C-z>', [[<C-^>]])

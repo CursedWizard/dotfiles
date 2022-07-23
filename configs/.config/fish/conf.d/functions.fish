@@ -2,6 +2,19 @@ function toaac
     ffmpeg -i $argv[1] -acodec copy "$argv[2].aac"
 end
 
+function find_file
+    echo 'You can find file using \'fd\' command'
+    echo 'Examples:'
+    echo ' - fd -t f -d 1 \'*.js\' - finds files with .js extension in current directory'
+end
+
+function find_word
+    echo 'You can find file using \'rg\' command'
+    echo 'Examples:'
+    echo ' - rg \"windows\" -i - finds files with word \'windows\' case insensitively'
+end
+
+
 function vpn_connect
     openvpn --config es-bcn.prod.surfshark.com_udp.ovpn --auth-user-pass aa_pass.txt
 end

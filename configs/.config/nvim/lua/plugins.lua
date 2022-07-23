@@ -7,20 +7,56 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- Fzf integration
   use('junegunn/fzf.vim')
-  use('rakr/vim-one')
 
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} },
+    config = function()
+      require('plugins.telescope')
+    end
+  }
+
+  use {
+    "nvim-telescope/telescope-project.nvim",
+    config = function()
+      require"telescope".load_extension("project")
+    end,
+  }
+
+  use {
+  "AckslD/nvim-neoclip.lua",
+  requires = {
+    -- you'll need at least one of these
+    {'nvim-telescope/telescope.nvim'},
+  },
+  config = function()
+    require('neoclip').setup()
+    require"telescope".load_extension("neoclip")
+  end,
+}
+
+  -- Themes / icons
+  use('rakr/vim-one')
   use('vim-airline/vim-airline-themes')
+  use({'kyazdani42/nvim-web-devicons'})
+
+  -- Easier replacements in nvim
+  use("svermeulen/vim-subversive")
+
   -- Ranger integration
   use('kevinhwang91/rnvimr')
 
-  use('github/copilot.vim')
+  use({'github/copilot.vim', disable = false})
 
   -- Automatic rooting
   use('airblade/vim-rooter')
 
   -- Git integration
   use('tpope/vim-fugitive')
+
+  use('tpope/vim-surround')
 
   -- Better motion: camelCase_Test
   --                w -> w -> w
@@ -31,8 +67,6 @@ return require('packer').startup(function(use)
     disable = true
   })
 
-
-  use({'kyazdani42/nvim-web-devicons'})
 
   -- use {
   --   'romgrk/barbar.nvim',
@@ -50,12 +84,12 @@ return require('packer').startup(function(use)
     end
   })
 
-  use({
-    'akinsho/bufferline.nvim',
+  use {'akinsho/bufferline.nvim', tag = "v2.*",
+    requires = 'kyazdani42/nvim-web-devicons',
     config = function()
       require('plugins.bufferline')
     end
-  })
+  }
 
   -- use ({
   --   'akinsho/nvim-bufferline.lua',
@@ -103,11 +137,7 @@ return require('packer').startup(function(use)
   use({
     'windwp/nvim-autopairs',
     config = function()
-      require('nvim-autopairs').setup({
-        disable_filetype = { 'TelescopePrompt' },
-        check_ts = true,
-        map_cr = false
-      })
+      require('plugins.nvim-autopair')
     end,
   })
 
@@ -134,8 +164,6 @@ return require('packer').startup(function(use)
 
   use({
     'p00f/nvim-ts-rainbow',
-    event = 'BufRead',
-    requires = 'nvim-treesitter',
   })
 
   use({
@@ -171,6 +199,7 @@ return require('packer').startup(function(use)
   --   end,
   -- })
 
+  -- color highlighter for Neovim
   use({
     'norcalli/nvim-colorizer.lua',
     event = 'BufRead',
@@ -185,6 +214,8 @@ return require('packer').startup(function(use)
     commit = 'cb336318abe0fb2e125731201d0df029abce0b39'
   })
 
+  -- vscode-like pictograms for neovim
+  -- lsp completion items
   use({
     'onsails/lspkind-nvim',
     event = 'BufRead',
@@ -192,6 +223,8 @@ return require('packer').startup(function(use)
       require('plugins.lspkind')
     end,
   })
+
+  use({"tpope/vim-abolish"})
 
 
   -- Some other useful plugins

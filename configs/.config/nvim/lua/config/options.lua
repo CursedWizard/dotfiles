@@ -62,7 +62,7 @@ g['airline#extensions#tabline#switch_buffers_and_tabs']=1
 
 g['move_key_modifier'] = 'C'
 -- Rooter
-g.rooter_patterns = {'^autoload', '=src', '.git', 'Makefile', '.gitignore'}
+g.rooter_patterns = {'^autoload', '.git', 'Makefile', '.gitignore'}
 g.ranger_map_keys = 0
 
 -- shortmess options

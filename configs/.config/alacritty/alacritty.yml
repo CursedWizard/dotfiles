@@ -15,7 +15,7 @@ colors:
    blue:    '#61afef'
    magenta: '#c678dd'
    cyan:    '#56b6c2'
-   white:   '#abb2bf'
+   white:   '#1e2127'
 
  # Bright colors
  bright:
@@ -26,7 +26,7 @@ colors:
    blue:    '#61afef'
    magenta: '#c678dd'
    cyan:    '#56b6c2'
-   white:   '#ffffff'
+   white:   '#abb2bf'
 
 
 # background_opacity: 1.0

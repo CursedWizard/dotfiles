@@ -27,6 +27,7 @@ cached="$4"          # Path that should be used to cache image previews
 preview_images="$5"  # "True" if image previews are enabled, "False" otherwise.
 
 maxln=200    # Stop after $maxln lines.  Can be used like ls | head -n $maxln
+HIGHLIGHT_SIZE_MAX=24576  # 256KiB
 
 # Find out something about the file:
 mimetype=$(file --mime-type -Lb "$path")
@@ -96,7 +97,10 @@ esac
 
 case "$mimetype" in
     # Syntax highlight for text files:
-    text/* | */xml)
+    text/* | */xml | */json)
+        if [[ "$( stat --printf='%s' -- "${path}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
+          exit 2
+        fi
         if [ "$(tput colors)" -ge 256 ]; then
             pygmentize_format=terminal256
             highlight_format=ansi

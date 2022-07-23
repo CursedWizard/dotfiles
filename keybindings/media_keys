@@ -1,5 +1,5 @@
 [/]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/']
 screensaver=@as []
 volume-down=['<Super>minus']
 volume-mute=['<Super>m']
@@ -19,3 +19,13 @@ name='Allactiry'
 binding='<Super>b'
 command='firefox'
 name='Firefox'
+
+[custom-keybindings/custom3]
+binding='<Super>e'
+command='nautilus'
+name='Files'
+
+[custom-keybindings/custom4]
+binding='<Super>Insert'
+command='flameshot gui'
+name='Screenshot'
