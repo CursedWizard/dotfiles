@@ -80,13 +80,14 @@
   "suggest.labelMaxLength": 20,
 
   "rust-analyzer.rustfmt.enableRangeFormatting": true,
-  "coc.preferences.formatOnSaveFiletypes": ["rust"],
   "python.formatting.autopep8Args": ["-aa"],
   "python.analysis.autoImportCompletions": true,
 
   "python.linting.flake8Enabled": false,
   "go.goplsOptions": {"gofumpt": true},
 
-  "prettier.tabWidth": 2
+  "prettier.tabWidth": 2,
+  "coc.preferences.formatOnSaveFiletypes": ["rust"]
+
 }
 

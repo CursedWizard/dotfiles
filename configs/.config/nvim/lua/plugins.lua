@@ -7,6 +7,8 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+
   -- Fzf integration
   use('junegunn/fzf.vim')
 
@@ -224,6 +226,16 @@ return require('packer').startup(function(use)
     end,
   })
 
+  -- Change case type
+  -- crs (coerce to snake_case).
+  -- MixedCase (crm),
+  -- camelCase (crc),
+  -- snake_case (crs),
+  -- UPPER_CASE (cru),
+  -- dash-case (cr-),
+  -- dot.case (cr.),
+  -- space case (cr<space>),
+  -- and Title Case (crt)
   use({"tpope/vim-abolish"})
 
 

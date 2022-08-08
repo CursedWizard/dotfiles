@@ -26,6 +26,8 @@ map('i', '<C-z>', [[<C-^>]])
 map('n', '<C-l>', [[:bnext<CR>]])
 map('n', '<C-h>', [[:bprevious<CR>]])
 
+map('n', '<leader>p', [[:CocCommand prettier.formatFile<CR>]], opts)
+
 -- Fugitive
 map('n', '<leader>go', [[:G<CR>]], opts)
 map('n', '<leader>gl', [[:Git log<CR>]], opts)
