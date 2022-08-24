@@ -34,21 +34,21 @@ colors:
 
 font:
   normal:
-    family: 'Fira Code Nerd Font'
+    family: 'FiraCode Nerd Font Mono' 
     # family: 'Hack'
     # family: 'Consolas'
     # family: 'DejaVuSerif'
     # family: 'SourceCodePro'
     # family: 'SauceCodePro'
 
-    italic:
-      style: 'Italic'
+    # italic:
+    #   style: 'Italic'
   # bold:
   #   family: 'Fira Code'
   #   style: 'Bold'
 
 # Point size
-  size: 12.0
+  size: 15.0
 
   offset:
     x: 0

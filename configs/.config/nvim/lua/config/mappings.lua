@@ -74,3 +74,8 @@ map('n', 'H', [[^]], opts)
 map('v', 'H', [[^]], opts)
 map('o', 'H', [[^]], opts)
 
+-- Git merge conflicts
+map('n', '<leader>gd', [[:Gvdiff<CR>]], opts)
+map('n', '<leader>gdh', [[:diffget //2<CR>]], opts)
+map('n', '<leader>gdl', [[:diffget //3<CR>]], opts)
+

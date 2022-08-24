@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
   -- Ranger integration
   use('kevinhwang91/rnvimr')
 
-  use({'github/copilot.vim', disable = false})
+  -- use({'github/copilot.vim', disable = false})
 
   -- Automatic rooting
   use('airblade/vim-rooter')
@@ -213,7 +213,6 @@ return require('packer').startup(function(use)
   use({
     'neoclide/coc.nvim',
     branch = 'release',
-    commit = 'cb336318abe0fb2e125731201d0df029abce0b39'
   })
 
   -- vscode-like pictograms for neovim

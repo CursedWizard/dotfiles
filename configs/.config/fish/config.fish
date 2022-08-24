@@ -1,6 +1,4 @@
 
-set EDITOR 'nvim'
-
 fish_vi_key_bindings
 
 if not test -d $HOME/.config/ranger
@@ -44,3 +42,6 @@ end
 set -Ux BUN_INSTALL "/home/funtik/.bun"
 set -px --path PATH "/home/funtik/.bun/bin"
 
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+starship init fish | source
