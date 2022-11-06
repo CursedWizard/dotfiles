@@ -114,7 +114,7 @@ key_bindings:
   - { key: V,                           mode: Vi, action: ToggleNormalSelection   }
   - { key: V,      mods: Shift,         mode: Vi, action: ToggleLineSelection     }
   - { key: V,      mods: Control,       mode: Vi, action: ToggleBlockSelection    }
-  - { key: V,      mods: Alt,           mode: Vi, action: ToggleSemanticSelection }
+  # - { key: V,      mods: Alt,           mode: Vi, action: ToggleSemanticSelection }
   - { key: Return,                      mode: Vi, action: Open                    }
   - { key: K,                           mode: Vi, action: Up                      }
   - { key: J,                           mode: Vi, action: Down                    }
@@ -143,7 +143,7 @@ key_bindings:
   - { key: N,      mods: Shift,         mode: Vi, action: SearchPrevious          }
 
    # (Windows, Linux, and BSD only)
-  - { key: P,              mods: Alt,                     action: Paste            }
+  - { key: V,              mods: Alt,                     action: Paste            }
   # - { key: C,              mods: Alt,                     action: Copy             }
   - { key: F,              mods: Control|Shift,           action: SearchForward    }
   - { key: B,              mods: Control|Shift,           action: SearchBackward   }

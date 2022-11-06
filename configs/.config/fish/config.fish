@@ -43,4 +43,5 @@ end
 # Bun
 set -Ux BUN_INSTALL "/home/funtik/.bun"
 set -px --path PATH "/home/funtik/.bun/bin"
-
+starship init fish | source
+nvm use 14
