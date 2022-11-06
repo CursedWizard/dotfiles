@@ -9,6 +9,8 @@ return require('packer').startup(function(use)
 
   use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 
+  use 'navarasu/onedark.nvim'
+
   -- Fzf integration
   use('junegunn/fzf.vim')
 

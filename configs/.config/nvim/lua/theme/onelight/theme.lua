@@ -15,6 +15,29 @@ function M.setup(config)
   theme.colors = colors.setup(config)
   local c = theme.colors
 
+  theme.treesitter = {
+    ["@function"] = { fg = c.blue, style = 'italic' },
+    ["@function.builtin"] = {fg = c.purple, fmt = 'bold'},
+    ["@parameter.reference"] = c.blue,
+    ["@property"] = {fg = c.cyan},
+    ["@constructor"] = {fg = c.red, fmt = "bold"},
+    ["@field"] = c.purple,
+    ["@constant.builtin"] = c.purple,
+    ["@constant.macro"] = c.purple,
+    ["@constant"] = c.purple,
+    ["@keyword"] = {fg = c.purple},
+    ["@keyword.function"] = {fg = c.purple},
+    ["@keyword.operator"] =  {fg = c.purple},
+      ["@parameter"] = {fg = c.red},
+      ["@variable.builtin"] = {fg = c.yellow},
+      ["@punctuation.special"] = {fg = c.yellow},
+      -- Component props
+      ["@tag"] = {fg = c.cyan},
+        ["@tag.delimiter"] = {fg = c.red, fmt = "bold"},
+      ["@include"] = {fg = c.purple},
+
+  }
+
   theme.base = { -- luacheck: ignore
     Comment = { fg = c.fg_gutter, style = config.commentStyle }, -- any comment
     ColorColumn = { bg = c.bg_visual }, -- used for the columns set with 'colorcolumn'

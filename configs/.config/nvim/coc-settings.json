@@ -87,7 +87,8 @@
   "go.goplsOptions": {"gofumpt": true},
 
   "prettier.tabWidth": 2,
-  "coc.preferences.formatOnSaveFiletypes": ["rust"]
-
+  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "css.lint.unknownAtRules": "ignore",
+  "_tailwindCSS.lint.invalidTailwindDirective": "ignore"
 }
 

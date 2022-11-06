@@ -212,6 +212,7 @@ function util.load(theme)
   -- vim.api.nvim__set_hl_ns(ns)
   -- load base theme
   util.syntax(theme.base)
+  util.syntax(theme.treesitter)
 
   -- load syntax for plugins and terminal async
   util.terminal(theme.colors)
