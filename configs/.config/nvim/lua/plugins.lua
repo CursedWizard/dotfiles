@@ -11,6 +11,8 @@ return require('packer').startup(function(use)
 
   use 'navarasu/onedark.nvim'
 
+  use 'marko-cerovac/material.nvim'
+
   -- Fzf integration
   use('junegunn/fzf.vim')
 
