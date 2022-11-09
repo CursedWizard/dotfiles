@@ -11,6 +11,8 @@ return require('packer').startup(function(use)
 
   use 'navarasu/onedark.nvim'
 
+  use 'marko-cerovac/material.nvim'
+
   -- Fzf integration
   use('junegunn/fzf.vim')
 
@@ -52,7 +54,7 @@ return require('packer').startup(function(use)
   -- Ranger integration
   use('kevinhwang91/rnvimr')
 
-  -- use({'github/copilot.vim', disable = false})
+  use({'github/copilot.vim', disable = false})
 
   -- Automatic rooting
   use('airblade/vim-rooter')

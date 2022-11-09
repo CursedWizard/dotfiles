@@ -16,26 +16,35 @@ function M.setup(config)
   local c = theme.colors
 
   theme.treesitter = {
+    -- Types like string, number, boolean etc
+    ["@type.builtin"] = {fg = c.orange},
     ["@function"] = { fg = c.blue, style = 'italic' },
     ["@function.builtin"] = {fg = c.purple, fmt = 'bold'},
     ["@parameter.reference"] = c.blue,
     ["@property"] = {fg = c.cyan},
     ["@constructor"] = {fg = c.red, fmt = "bold"},
     ["@field"] = c.purple,
-    ["@constant.builtin"] = c.purple,
+    ["@constant.builtin"] = {fg = c.orange},
     ["@constant.macro"] = c.purple,
-    ["@constant"] = c.purple,
+    ["@constant"] = {fg = c.yellow},
     ["@keyword"] = {fg = c.purple},
     ["@keyword.function"] = {fg = c.purple},
     ["@keyword.operator"] =  {fg = c.purple},
-      ["@parameter"] = {fg = c.red},
-      ["@variable.builtin"] = {fg = c.yellow},
-      ["@punctuation.special"] = {fg = c.yellow},
-      -- Component props
-      ["@tag"] = {fg = c.cyan},
-        ["@tag.delimiter"] = {fg = c.red, fmt = "bold"},
-      ["@include"] = {fg = c.purple},
-
+    ["@parameter"] = {fg = c.fg},
+    ["@variable.builtin"] = {fg = c.purple},
+    ["@variable.delimiter"] = {fg = c.purple},
+    ["@variable.bracket"] = {fg = c.purple},
+    ["@variable"] = {fg = c.fg},
+    -- ["@comment"] = {fg = c.fg},
+    -- Html tag color
+    ["@tag"] = {fg = c.red},
+    -- <> </> color
+    ["@tag.delimiter"] = {fg = c.red, fmt = "bold"},
+    -- Props color
+    ["@tag.attribute"] = { fg = c.yellow },
+    ["@include"] = {fg = c.purple},
+    ["@boolean"] = { fg = c.orange },
+    ["@character"] = {fg = c.light_grey},
   }
 
   theme.base = { -- luacheck: ignore
@@ -108,9 +117,9 @@ function M.setup(config)
     Constant = { fg = c.yellow2 }, -- (preferred) any constant
     String = { fg = c.green }, --   a string constant: "this is a string"
     Character = { fg = c.green }, --  a character constant: 'c', '\n'
-    -- Number        = { }, --   a number constant: 234, 0xff
-    -- Boolean       = { }, --  a boolean constant: TRUE, false
-    -- Float         = { }, --    a floating point constant: 2.3e10
+    Number        = { fg = c.orange }, --   a number constant: 234, 0xff
+    Boolean       = { fg = c.orange }, --  a boolean constant: TRUE, false
+    Float         = { fg = c.orange }, --    a floating point constant: 2.3e10
 
     Identifier = { fg = c.red, style = config.variableStyle }, -- (preferred) any variable name
     Function = { fg = c.blue, style = config.functionStyle }, -- function name (also: methods for classes)
@@ -130,13 +139,13 @@ function M.setup(config)
 
     Type = { fg = c.yellow }, -- (preferred) int, long, char, etc.
     -- StorageClass  = { }, -- static, register, volatile, etc.
-    -- Structure     = { }, --  struct, union, enum, etc.
+    Structure     = { fg = c.yellow }, --  struct, union, enum, etc.
     -- Typedef       = { }, --  A typedef
 
     Special = { fg = c.red }, -- (preferred) any special symbol
     -- SpecialChar   = { }, --  special character in a constant
     -- Tag           = { }, --    you can use CTRL-] on this
-    -- Delimiter     = { }, --  character that needs attention
+    Delimiter     = { fg = c.light_grey }, --  character that needs attention
     -- SpecialComment= { }, -- special things inside a comment
     -- Debug         = { }, --    debugging statements
 
@@ -210,8 +219,8 @@ function M.setup(config)
 
     -- TSAnnotation        = { };    -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
     -- TSAttribute         = { };    -- (unstable) TODO: docs
-    -- TSBoolean           = { };    -- For booleans.
-    -- TSCharacter         = { };    -- For characters.
+    TSBoolean           = { fg = c.orange };    -- For booleans.
+    TSCharacter         = { fg = c.orange };    -- For characters.
     TSComment           = { fg = c.fg_gutter };    -- For comment blocks.
     TSNote = { fg = c.bg, bg = c.info },
     TSWarning = { fg = c.bg, bg = c.warning },
@@ -219,8 +228,8 @@ function M.setup(config)
     TSConstructor = { fg = c.red }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     -- TSConditional       = { };    -- For keywords related to conditionnals.
     TSConstant = { fg = c.yellow }, -- For constants
-    -- TSConstBuiltin      = { };    -- For constant that are built in the language: `nil` in Lua.
-    -- TSConstMacro        = { };    -- For constants that are defined by macros: `NULL` in C.
+    TSConstBuiltin      = { fg = c.purple };    -- For constant that are built in the language: `nil` in Lua.
+    TSConstMacro        = { fg = c.yellow };    -- For constants that are defined by macros: `NULL` in C.
     -- TSError             = { };    -- For syntax/parser errors.
     -- TSException         = { };    -- For exception related keywords.
     TSField = { fg = c.cyan }, -- For fields.
