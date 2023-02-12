@@ -5,13 +5,4 @@ require('lualine').setup({
   options = {
     theme = onelight_theme,
   },
-  sections = {
-    lualine_c = {
-      {
-        'diagnostics',
-        sources = { 'nvim_lsp' },
-      },
-      { 'filename' },
-    },
-  },
 })

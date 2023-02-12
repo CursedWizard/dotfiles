@@ -26,7 +26,8 @@ map('i', '<C-z>', [[<C-^>]])
 map('n', '<C-l>', [[:bnext<CR>]])
 map('n', '<C-h>', [[:bprevious<CR>]])
 
-map('n', '<leader>p', [[:CocCommand prettier.formatFile<CR>]], opts)
+-- map('n', '<leader>p', [[:CocCommand prettier.formatFile<CR>]], opts)
+map('n', '<leader>p', [[:CocCommand eslint.executeAutofix<CR>]], opts)
 
 -- Fugitive
 map('n', '<leader>go', [[:G<CR>]], opts)

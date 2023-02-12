@@ -17,37 +17,46 @@ function M.setup(config)
 
   theme.treesitter = {
     -- Types like string, number, boolean etc
-    ["@type.builtin"] = {fg = c.orange},
-    ["@function"] = { fg = c.blue, style = 'italic' },
-    ["@function.builtin"] = {fg = c.purple, fmt = 'bold'},
+    ["@function"] = { fg = c.blue },
+    ["@function.builtin"] = { fg = c.purple, fmt = "bold" },
     ["@parameter.reference"] = c.blue,
-    ["@property"] = {fg = c.cyan},
-    ["@constructor"] = {fg = c.red, fmt = "bold"},
+    ["@property"] = { fg = c.cyan },
+    ["@constructor"] = { fg = c.red, fmt = "bold" },
     ["@field"] = c.purple,
-    ["@constant.builtin"] = {fg = c.orange},
+    ["@constant.builtin"] = { fg = c.orange },
     ["@constant.macro"] = c.purple,
-    ["@constant"] = {fg = c.yellow},
-    ["@keyword"] = {fg = c.purple},
-    ["@keyword.function"] = {fg = c.purple},
-    ["@keyword.operator"] =  {fg = c.purple},
-    ["@parameter"] = {fg = c.fg},
-    ["@variable.builtin"] = {fg = c.purple},
-    ["@variable.delimiter"] = {fg = c.purple},
-    ["@variable.bracket"] = {fg = c.purple},
-    ["@variable"] = {fg = c.fg},
+    ["@constant"] = { fg = c.yellow },
+    ["@keyword"] = { fg = c.purple },
+    ["@keyword.function"] = { fg = c.purple, style = "italic" },
+    ["@keyword.operator"] = { fg = c.purple },
+    ["@parameter"] = { fg = c.fg },
+    ["@variable.builtin"] = { fg = c.purple },
+    ["@variable.delimiter"] = { fg = c.purple },
+    ["@variable.bracket"] = { fg = c.purple },
+    ["@variable"] = { fg = c.fg },
     -- ["@comment"] = {fg = c.fg},
     -- Html tag color
-    ["@tag"] = {fg = c.red},
+    ["@tag"] = { fg = c.red },
     -- <> </> color
-    ["@tag.delimiter"] = {fg = c.red, fmt = "bold"},
+    ["@tag.delimiter"] = { fg = c.red, fmt = "bold" },
     -- Props color
     ["@tag.attribute"] = { fg = c.yellow },
-    ["@include"] = {fg = c.purple},
+    ["@include"] = { fg = c.purple },
     ["@boolean"] = { fg = c.orange },
-    ["@character"] = {fg = c.light_grey},
+    ["@character"] = { fg = c.light_grey },
+    -- Types
+    ["@type.qualifier"] = { fg = c.orange }, -- type qualifiers (e.g. `const`)
+    ["@type.builtin"] = { fg = c.orange },
+    -- Identifiers
+    ["@namespace"] = { fg = c.yellow, style = "italic" }, -- For identifiers referring to modules and namespaces.
+    -- toml
+    ["@property.toml"] = { fg = c.blue }, -- Differentiates between string and properties
+    -- yaml
+    ["@field.yaml"] = { fg = c.blue }, -- For fields.
   }
 
-  theme.base = { -- luacheck: ignore
+  theme.base = {
+    -- luacheck: ignore
     Comment = { fg = c.fg_gutter, style = config.commentStyle }, -- any comment
     ColorColumn = { bg = c.bg_visual }, -- used for the columns set with 'colorcolumn'
     Conceal = { fg = c.fg_gutter }, -- placeholder characters substituted for concealed text (see 'conceallevel')
@@ -117,10 +126,9 @@ function M.setup(config)
     Constant = { fg = c.yellow2 }, -- (preferred) any constant
     String = { fg = c.green }, --   a string constant: "this is a string"
     Character = { fg = c.green }, --  a character constant: 'c', '\n'
-    Number        = { fg = c.orange }, --   a number constant: 234, 0xff
-    Boolean       = { fg = c.orange }, --  a boolean constant: TRUE, false
-    Float         = { fg = c.orange }, --    a floating point constant: 2.3e10
-
+    Number = { fg = c.orange }, --   a number constant: 234, 0xff
+    Boolean = { fg = c.orange }, --  a boolean constant: TRUE, false
+    Float = { fg = c.orange }, --    a floating point constant: 2.3e10
     Identifier = { fg = c.red, style = config.variableStyle }, -- (preferred) any variable name
     Function = { fg = c.blue, style = config.functionStyle }, -- function name (also: methods for classes)
     Statement = { fg = c.purple }, -- (preferred) any statement
@@ -139,13 +147,13 @@ function M.setup(config)
 
     Type = { fg = c.yellow }, -- (preferred) int, long, char, etc.
     -- StorageClass  = { }, -- static, register, volatile, etc.
-    Structure     = { fg = c.yellow }, --  struct, union, enum, etc.
+    Structure = { fg = c.yellow }, --  struct, union, enum, etc.
     -- Typedef       = { }, --  A typedef
 
     Special = { fg = c.red }, -- (preferred) any special symbol
     -- SpecialChar   = { }, --  special character in a constant
     -- Tag           = { }, --    you can use CTRL-] on this
-    Delimiter     = { fg = c.light_grey }, --  character that needs attention
+    Delimiter = { fg = c.light_grey }, --  character that needs attention
     -- SpecialComment= { }, -- special things inside a comment
     -- Debug         = { }, --    debugging statements
 
@@ -178,26 +186,22 @@ function M.setup(config)
     -- These groups are for the native LSP client. Some other LSP clients may
     -- use these groups, or use their own. Consult your LSP client's
     -- documentation.
-    LspReferenceText = { bg = c.fg_gutter }, -- used for highlighting "text" references
-    LspReferenceRead = { bg = c.fg_gutter }, -- used for highlighting "read" references
-    LspReferenceWrite = { bg = c.fg_gutter }, -- used for highlighting "write" references
+    LspReferenceText = { bg = c.bg3 }, -- used for highlighting "text" references
+    LspReferenceRead = { bg = c.bg3 }, -- used for highlighting "read" references
+    LspReferenceWrite = { bg = c.bg3 }, -- used for highlighting "write" references
     LspDiagnosticsDefaultError = { fg = c.error }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultWarning = { fg = c.warning }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultInformation = { fg = c.info }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultHint = { fg = c.hint }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-
     LspDiagnosticsVirtualTextError = { bg = c.none, fg = c.diagnostics.error }, -- Used for "Error" diagnostic virtual text
     LspDiagnosticsVirtualTextWarning = { bg = c.none, fg = c.diagnostics.warning }, -- Used for "Warning" diagnostic virtual text
     LspDiagnosticsVirtualTextInformation = { bg = c.none, fg = c.diagnostics.info }, -- Used for "Information" diagnostic virtual text
     LspDiagnosticsVirtualTextHint = { bg = c.none, fg = c.diagnostics.hint }, -- Used for "Hint" diagnostic virtual text
-
     LspDiagnosticsUnderlineError = { style = "undercurl", sp = c.diagnostics.error }, -- Used to underline "Error" diagnostics
     LspDiagnosticsUnderlineWarning = { style = "undercurl", sp = c.diagnostics.warning }, -- Used to underline "Warning" diagnostics
     LspDiagnosticsUnderlineInformation = { style = "undercurl", sp = c.diagnostics.info }, -- Used to underline "Information" diagnostics
     LspDiagnosticsUnderlineHint = { style = c.none, sp = c.diagnostics.hint }, -- Used to underline "Hint" diagnostics
-
     LspSignatureActiveParameter = { fg = c.orange },
-
     -- LspDiagnosticsFloatingError         = { }, -- Used to color "Error" diagnostic messages in diagnostics float
     -- LspDiagnosticsFloatingWarning       = { }, -- Used to color "Warning" diagnostic messages in diagnostics float
     -- LspDiagnosticsFloatingInformation   = { }, -- Used to color "Information" diagnostic messages in diagnostics float
@@ -210,7 +214,6 @@ function M.setup(config)
   }
 
   theme.plugins = {
-
     -- These groups are for the neovim tree-sitter highlights.
     -- As of writing, tree-sitter support is a WIP, group names may change.
     -- By default, most of these groups link to an appropriate Vim group,
@@ -219,23 +222,23 @@ function M.setup(config)
 
     -- TSAnnotation        = { };    -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
     -- TSAttribute         = { };    -- (unstable) TODO: docs
-    TSBoolean           = { fg = c.orange };    -- For booleans.
-    TSCharacter         = { fg = c.orange };    -- For characters.
-    TSComment           = { fg = c.fg_gutter };    -- For comment blocks.
+    TSBoolean = { fg = c.orange }, -- For booleans.
+    TSCharacter = { fg = c.orange }, -- For characters.
+    TSComment = { fg = c.fg_gutter }, -- For comment blocks.
     TSNote = { fg = c.bg, bg = c.info },
     TSWarning = { fg = c.bg, bg = c.warning },
     TSDanger = { fg = c.bg, bg = c.error },
     TSConstructor = { fg = c.red }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     -- TSConditional       = { };    -- For keywords related to conditionnals.
     TSConstant = { fg = c.yellow }, -- For constants
-    TSConstBuiltin      = { fg = c.purple };    -- For constant that are built in the language: `nil` in Lua.
-    TSConstMacro        = { fg = c.yellow };    -- For constants that are defined by macros: `NULL` in C.
+    TSConstBuiltin = { fg = c.purple }, -- For constant that are built in the language: `nil` in Lua.
+    TSConstMacro = { fg = c.yellow }, -- For constants that are defined by macros: `NULL` in C.
     -- TSError             = { };    -- For syntax/parser errors.
     -- TSException         = { };    -- For exception related keywords.
     TSField = { fg = c.cyan }, -- For fields.
     -- TSFloat             = { };    -- For floats.
-    TSFunction          = { fg = c.blue };    -- For function (calls and definitions).
-    TSFuncBuiltin       = { fg = c.blue };    -- For builtin functions: `table.insert` in Lua.
+    TSFunction = { fg = c.blue }, -- For function (calls and definitions).
+    TSFuncBuiltin = { fg = c.blue }, -- For builtin functions: `table.insert` in Lua.
     -- TSFuncMacro         = { };    -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
     TSInclude = { fg = c.purple }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
     TSKeyword = { fg = c.purple, style = config.keywordStyle }, -- For keywords that don't fall in previous categories.
@@ -253,15 +256,14 @@ function M.setup(config)
     TSPunctBracket = { fg = c.fg_dark }, -- For brackets and parens.
     TSPunctSpecial = { fg = c.fg }, -- For special punctutation that does not fall in the catagories before.
     -- TSRepeat            = { };    -- For keywords related to loops.
-    TSString            = { fg = c.green };    -- For strings.
+    TSString = { fg = c.green }, -- For strings.
     TSStringRegex = { fg = c.orange }, -- For regexes.
     TSStringEscape = { fg = c.red }, -- For escape characters within a string.
     -- TSSymbol            = { };    -- For identifiers referring to symbols or atoms.
     -- TSType              = { fg = c.purple };    -- For types.
-    TSTypeBuiltin       = { fg = c.purple };    -- For builtin types.
+    TSTypeBuiltin = { fg = c.purple }, -- For builtin types.
     TSVariable = { style = config.variableStyle }, -- Any variable name that does not have another highlight.
     TSVariableBuiltin = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
-
     TSTag = { fg = c.red }, -- Tags like html tag names.
     -- TSTagDelimiter      = { };    -- Tag delimiter like `<` `>` `/`
     -- TSText              = { };    -- For strings considered text in a markup language.
@@ -280,11 +282,9 @@ function M.setup(config)
     LspTroubleText = { fg = c.fg_dark },
     LspTroubleCount = { fg = c.purple, bg = c.fg_gutter },
     LspTroubleNormal = { fg = c.fg_sidebar, bg = c.bg_sidebar },
-
     -- Illuminate
     illuminatedWord = { bg = c.fg_gutter },
     illuminatedCurWord = { bg = c.fg_gutter },
-
     -- diff
     diffAdded = { fg = c.git.add },
     diffRemoved = { fg = c.git.delete },
@@ -294,7 +294,6 @@ function M.setup(config)
     diffFile = { fg = c.blue },
     diffLine = { fg = c.fg_gutter },
     diffIndexLine = { fg = c.purple },
-
     -- Neogit
     NeogitBranch = { fg = c.purple },
     NeogitRemote = { fg = c.purple },
@@ -303,21 +302,17 @@ function M.setup(config)
     NeogitDiffContextHighlight = { bg = util.darken(c.fg_gutter, 0.5), fg = c.fg_dark },
     NeogitDiffDeleteHighlight = { fg = c.git.delete, bg = c.diff.delete },
     NeogitDiffAddHighlight = { fg = c.git.add, bg = c.diff.add },
-
     -- GitGutter
     GitGutterAdd = { fg = c.gitSigns.add }, -- diff mode: Added line |diff.txt|
     GitGutterChange = { fg = c.gitSigns.change }, -- diff mode: Changed line |diff.txt|
     GitGutterDelete = { fg = c.gitSigns.delete }, -- diff mode: Deleted line |diff.txt|
-
     -- GitSigns
     GitSignsAdd = { fg = c.gitSigns.add }, -- diff mode: Added line |diff.txt|
     GitSignsChange = { fg = c.gitSigns.change }, -- diff mode: Changed line |diff.txt|
     GitSignsDelete = { fg = c.gitSigns.delete }, -- diff mode: Deleted line |diff.txt|
     GitSignsCurrentLineBlame = { fg = c.fg_gutter },
-
     -- Telescope
     TelescopeBorder = { fg = c.border_highlight },
-
     -- NvimTree
     NvimTreeNormal = { fg = c.fg, bg = c.bg },
     NvimTreeEndOfBuffer = config.darkSidebar and { fg = c.bg2 } or { fg = c.bg },
@@ -335,13 +330,11 @@ function M.setup(config)
     LspDiagnosticsWarning = { fg = c.warning },
     LspDiagnosticsInformation = { fg = c.info },
     LspDiagnosticsHint = { fg = c.hint },
-
     -- Dashboard
     DashboardShortCut = { fg = c.purple },
     DashboardHeader = { fg = c.red },
     DashboardCenter = { fg = c.blue },
     DashboardFooter = { fg = c.yellow, style = "italic" },
-
     -- WhichKey
     WhichKey = { fg = c.yellow },
     WhichKeyGroup = { fg = c.blue },
@@ -350,44 +343,37 @@ function M.setup(config)
     WhichKeySeparator = { fg = c.fg_gutter },
     WhichKeyFloat = { bg = c.bg_sidebar },
     WhichKeyValue = { fg = c.dark5 },
-
     -- LspSaga
     DiagnosticError = { fg = c.error },
     DiagnosticWarning = { fg = c.warning },
     DiagnosticInformation = { fg = c.info },
     DiagnosticHint = { fg = c.hint },
-
     -- NeoVim
     healthError = { fg = c.error },
     healthSuccess = { fg = c.green },
     healthWarning = { fg = c.warning },
-
     -- BufferLine
     BufferLineFill = { bg = c.bg2 },
     BufferlineBg = { bg = c.bg2, fg = c.fg }, -- Default color for buffer (e.g. not selected)
-    BufferlineBufferSelected = { bg = c.bg, fg = c.fg, style = 'italic' },
-    BufferlineBufferVisible = {  bg = c.bg2, fg = c.fg, },
+    BufferlineBufferSelected = { bg = c.bg, fg = c.fg, style = "italic" },
+    BufferlineBufferVisible = { bg = c.bg2, fg = c.fg },
     BufferlineModifiedVisible = { bg = c.bg2, fg = c.green },
     BufferlineModifiedSelected = { bg = c.bg, fg = c.green },
     BufferlineSeperator = { bg = c.bg2, fg = c.fg_gutter },
     BufferlineSeperatorSelected = { bg = c.bg2, fg = c.fg_gutter },
     BufferlineSeperatorVisible = { bg = c.bg2, fg = c.fg_gutter },
     BufferLineIndicator = { bg = c.bg, fg = c.cyan },
-    BufferlinePickVisible = { bg = c.bg2 , fg = c.red1 },
-
+    BufferlinePickVisible = { bg = c.bg2, fg = c.red1 },
     -- ALE
     ALEWarningSign = { fg = c.yellow },
     ALEErrorSign = { fg = c.red },
-
     -- QuickScope
     QuickScopePrimary = { fg = c.light, bg = c.cyan },
     QuickScopeSecondary = { fg = c.light, bg = c.red },
-
     -- Hop
-    HopNextKey = { fg = c.purple, bg = c.bg_highlight, style = 'bold' },
-    HopNextKey1 = { fg = c.red, bg = c.bg_highlight, style = 'bold' },
-    HopNextKey2 = { fg = c.red1, bg = c.bg_highlight, style = 'bold' },
-
+    HopNextKey = { fg = c.purple, bg = c.bg_highlight, style = "bold" },
+    HopNextKey1 = { fg = c.red, bg = c.bg_highlight, style = "bold" },
+    HopNextKey2 = { fg = c.red1, bg = c.bg_highlight, style = "bold" },
     -- TODO: Either remove it or get it done
     -- CoC
     --[[ CocErrorSign = {fg = c.red},

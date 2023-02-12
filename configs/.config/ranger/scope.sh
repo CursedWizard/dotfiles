@@ -111,7 +111,8 @@ case "$mimetype" in
         # try safepipe highlight --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
         # try safepipe pygmentize -f ${pygmentize_format} "$path" && { dump | trim; exit 5; }
         export COLORTERM=screen-256color
-        try safepipe bat --color=always --theme=OneHalfLight --style="plain"  "$path" && { dump | trim; exit 5; }
+        # try safepipe bat --color=always --theme=OneHalfLight --style="plain"  "$path" && { dump | trim; exit 5; }
+        try safepipe bat --color=always --theme="Catppuccin-macchiato" --style="plain"  "$path" && { dump | trim; exit 5; }
 
         exit 2;;
     # Ascii-previews of images:
