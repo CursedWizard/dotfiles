@@ -75,3 +75,5 @@ map('n', 'H', [[^]], opts)
 map('v', 'H', [[^]], opts)
 map('o', 'H', [[^]], opts)
 
+vim.keymap.set("n", "<Space>R", [[:RnvimrToggle<CR>]], { noremap = true, silent = true })
+

@@ -57,7 +57,7 @@ function M.setup(config)
 
   theme.base = {
     -- luacheck: ignore
-    Comment = { fg = c.fg_gutter, style = config.commentStyle }, -- any comment
+    Comment = { fg = c.fg_gutter }, -- any comment
     ColorColumn = { bg = c.bg_visual }, -- used for the columns set with 'colorcolumn'
     Conceal = { fg = c.fg_gutter }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = { fg = c.bg, bg = c.fg }, -- character under the cursor

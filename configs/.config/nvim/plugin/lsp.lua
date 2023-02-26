@@ -33,8 +33,8 @@ lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_pub
   underline = true,
 })
 
-lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
-lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
+-- lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
+-- lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
 
 local severity = {
   "error",
@@ -51,10 +51,14 @@ local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts = opts or {}
   -- opts.border = opts.border or 'single'
-  opts.max_width= opts.max_width or 80
-  opts.max_height = opts.max_height or 20
+  -- opts.max_width= opts.max_width or 40
+  -- opts.max_height = opts.max_height or 40
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
 
 require("lsp_signature").setup({ bind = true, handler_opts = { border = "single" } })
 local keymap_opts = { noremap = true, silent = true }

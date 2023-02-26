@@ -6,6 +6,7 @@ from subprocess import run
 import os
 from argparse import ArgumentParser
 
+
 def stow_configs():
     if which("stow") is None:
         run(["apt-get", "install", "-y", "stow"])
@@ -15,8 +16,10 @@ def stow_configs():
     run(["stow", "ranger"])
     run(["stow", "alacritty"])
 
+
 def update():
     run(["apt-get", "update"])
+
 
 def install_docker():
     update()
@@ -47,7 +50,9 @@ def install_docker():
     if which("docker-compose") is None:
         command = """
             bash -c "curl -L \
-            https://github.com/docker/compose/releases/download/1.28.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose"
+            https://github.com/docker/compose/releases/download/\
+            1.28.4/docker-compose-`uname -s`-`uname -m`\
+            -o /usr/local/bin/docker-compose"
         """
         os.system(command)
         os.system("chmod +x /usr/local/bin/docker-compose")
@@ -56,7 +61,14 @@ def install_docker():
 def init_server():
     # install basic utilities
 
-    required_programs = ["fish", "ranger", "neovim", "rsync", "unzip", "python3-pip"]
+    required_programs = [
+        "fish",
+        "ranger",
+        "neovim",
+        "rsync",
+        "unzip",
+        "python3-pip"
+    ]
     # Installs certificate on your server
     # run certbot --nginx to apply certificate
     required_programs.append("python3-certbot-nginx")
@@ -85,7 +97,7 @@ def parse_args():
 
     return parser.parse_args()
 
+
 if __name__ == "__main__":
     args = parse_args()
     args.func()
-
