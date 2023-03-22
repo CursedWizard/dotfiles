@@ -1,5 +1,28 @@
 function toaac
-    ffmpeg -i $argv[1] -acodec copy "$argv[2].aac"
+  # use output original file name with .aac extension
+  if test "$argv[2]" = ""
+    set argv[2] (echo $argv[1] | sed 's/\.[^.]*$/.aac/')
+  end
+
+  ffmpeg -i $argv[1] -c:a aac -b:a 192k $argv[2]
+end
+
+function tomp3
+  # use output original file name with .mp3 extension
+  if test "$argv[2]" = ""
+    set argv[2] (echo $argv[1] | sed 's/\.[^.]*$/.mp3/')
+  end
+
+  ffmpeg -i $argv[1] -c:a libmp3lame -b:a 192k $argv[2]
+end
+
+function toogg
+  # use output original file name with .ogg extension
+  if test "$argv[2]" = ""
+    set argv[2] (echo $argv[1] | sed 's/\.[^.]*$/.ogg/')
+  end
+
+  ffmpeg -i $argv[1] -c:a libvorbis -b:a 192k $argv[2]
 end
 
 function find_file
